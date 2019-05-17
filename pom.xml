@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>SpringBoot-JPA-Fx</artifactId>
+	<artifactId>SpringBootJPA-Fx</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringBoot-JPA-FX</name>
+	<name>SpringBootJPA-FX</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

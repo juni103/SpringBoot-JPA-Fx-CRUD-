@@ -9,13 +9,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="361.0" prefWidth="457.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="361.0" prefWidth="455.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="suppliersTable" prefHeight="284.0" prefWidth="349.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+      <TableView fx:id="categoryTable" prefHeight="284.0" prefWidth="349.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
-          <TableColumn fx:id="phoneColumn" prefWidth="75.0" text="Phone" />
-            <TableColumn fx:id="addressColumn" prefWidth="75.0" text="Address" />
+          <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
+          <TableColumn fx:id="descriptionColumn" prefWidth="75.0" text="Description" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -31,7 +30,7 @@
             <Insets right="10.0" />
          </padding>
       </ButtonBar>
-      <Label layoutX="14.0" layoutY="4.0" text="Suppliers" AnchorPane.leftAnchor="0.0">
+      <Label layoutX="14.0" layoutY="4.0" text="Categories" AnchorPane.leftAnchor="0.0">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
