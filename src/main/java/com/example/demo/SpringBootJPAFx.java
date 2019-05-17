@@ -13,6 +13,7 @@ public class SpringBootJPAFx extends AbstractSpringBootFx {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		System.out.println("test");
 		stageManager.setPrimaryStage(primaryStage);
 		stageManager.showMain();
 	}
