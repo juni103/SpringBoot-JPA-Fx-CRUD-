@@ -1,17 +1,14 @@
 package com.example.demo.controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.StageManager;
 import com.example.demo.model.Supplier;
-import com.example.demo.service.SupplierService;
+import com.example.demo.service.SupplierServiceImpl;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -25,12 +22,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 @Component
-public class SupplierController implements Initializable, ContainerView {
+public class SupplierController implements Initializable {
 	
-	@Value("${classpath:/com/example/demo/view/SuppliersView.fxml}")
-	private Resource supplierViewResource;
-	
-	@FXML private TableView<Supplier> suppliersTable;
+	@FXML TableView<Supplier> suppliersTable;
 	@FXML private TableColumn<Supplier, String> nameColumn;
     @FXML private TableColumn<Supplier, String> phoneColumn;
     @FXML private TableColumn<Supplier, String> addressColumn;
@@ -40,14 +34,14 @@ public class SupplierController implements Initializable, ContainerView {
     @FXML private Button addButton;
 	
     @Autowired StageManager stageManager;
-    @Autowired SupplierService supplierService;
+    @Autowired SupplierServiceImpl supplierService;
     
     private ObservableList<Supplier> suppliers = FXCollections.observableArrayList();
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		addEventListeners();
-		setSuppliersTable();
+		setsuppliersTable();
 	}
 	
 	private void addEventListeners() {
@@ -74,8 +68,8 @@ public class SupplierController implements Initializable, ContainerView {
 		return suppliersTable.getSelectionModel().getSelectedItem();
 	}
 	
-	private void setSuppliersTable() {
-		Platform.runLater(() -> suppliers.setAll(supplierService.getAllSuppliers()));
+	private void setsuppliersTable() {
+		Platform.runLater(() -> suppliers.addAll(supplierService.getAllSuppliers()));
 		
 		suppliersTable.setItems(suppliers);
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Supplier, String>("name"));
@@ -102,10 +96,5 @@ public class SupplierController implements Initializable, ContainerView {
 	public void addSupplier(Supplier supplier) {
 		supplier = supplierService.updateSupplier(supplier);
 		suppliersTable.getItems().add(supplier);
-	}
-
-	@Override
-	public URL getView() throws IOException {
-		return supplierViewResource.getURL();
 	}
 }
